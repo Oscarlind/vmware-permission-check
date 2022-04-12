@@ -11,6 +11,7 @@ When run, the script will compare the users permission to those that are require
 
 # Example usage
 
+```bash
 ➜ ./check-vmware-permissions.sh 
 Usage: ./check-vmware-permissions.sh [options]
 
@@ -34,3 +35,4 @@ StorageProfile.View ✔
 System.Anonymous ✔
 System.Read ✔
 System.View ✔
+```
