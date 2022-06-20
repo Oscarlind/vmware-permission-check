@@ -1,5 +1,6 @@
 # vmware-permission-check
 Script to check if user got adequate permission in vmware for OpenShift/Kubernetes
+Checks included for both UPI and IPI installations.
 
 Pre-requirements
 ----------------
@@ -13,11 +14,15 @@ It also requires the user to be logged in to the vCenter which is easily done by
 
 Permission check
 =========
-Simple script to check if user got the necessary permissions for installing OpenShift on VMware with dynamic storage provisioning.
+Simple script to check if user got the necessary permissions for installing OpenShift on VMware.
+
+Checks:
+1.  Permissions required for dynamic storage provisioning (UPI).
+2.  Permissions required for IPI.
 
 How it works
 ----------------
-When run, the script will compare the users permission to those that are required for dynamic storage provisioning. It will output the permissions with either a check mark notifiying the user that it has the permission or a cross telling the permission is missing.
+When run, the script will compare the users permission to those that are required for dynamic storage provisioning (UPI) or IPI installation. It will output the permissions with either a check mark notifiying the user that it has the permission or a cross telling the permission is missing.
 
 A list of the necessary permissions can be found [here](https://github.com/vmware-archive/vsphere-storage-for-kubernetes/blob/master/documentation/vcp-roles.md)
 
@@ -29,11 +34,11 @@ A list of the necessary permissions can be found [here](https://github.com/vmwar
 Usage: ./check-vmware-permissions.sh [options]
 
 Options:
-    -s          Checks if user got adequate permissions.
+    -u          Checks if user got adequate permissions for a UPI installation.
+    -i          Checks if user got adequate permissions for a IPI installation.
     -h          Prints this messages and exits.
 
-
-➜ ./check-vmware-permissions.sh -s
+➜ ./check-vmware-permissions.sh -u
 Resource.AssignVMToPool ✔
 VirtualMachine.Config.AddExistingDisk ✔
 VirtualMachine.Config.AddNewDisk ✔
