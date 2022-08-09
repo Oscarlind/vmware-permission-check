@@ -54,7 +54,7 @@ fi
 
 results=$(
   for role in $(govc permissions.ls | awk '(NR>1)' | awk '{ print $1 '} | sort | uniq -u); do 
-    govc role.ls $role 2>/dev/null; 
+    govc role.ls "$role" 2>/dev/null; 
   done
 )
 
