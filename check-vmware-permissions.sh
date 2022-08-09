@@ -52,11 +52,7 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
-results=$(
-  for role in $(govc permissions.ls | awk '(NR>1)' | awk '{ print $1 '} | sort | uniq -u); do 
-    govc role.ls "$role" 2>/dev/null; 
-  done
-)
+results=( $(govc permissions.ls -json=true | jq  -r .Roles[].Privilege | tr -d "," | tr -d '\n' | tr -d '[]' | tr -d '"' | sort | uniq ) )
 
 for item in ${reqPermissions[@]}; do
   if ( IFS=$'\n'; echo "${results[*]}" ) | grep -qFx "$item"; then
