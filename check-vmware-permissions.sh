@@ -54,6 +54,10 @@ fi
 
 results=( $(govc permissions.ls -json=true | jq  -r .Roles[].Privilege | tr -d [,' '\"] | sort -u ) )
 
+echo -e "Evaluating permissions for:\n\n$GOVC_USERNAME\n"
+echo "================================================="
+sleep 1
+
 for item in ${reqPermissions[@]}; do
   if ( IFS=$'\n'; echo "${results[*]}" ) | grep -qFx "$item"; then
       echo -e "$item \xE2\x9C\x94"
