@@ -8,7 +8,7 @@ This script requires the user to have [govc](https://github.com/vmware/govmomi/t
 It also requires the user to be logged in to the vCenter which is easily done by exporting these variables:
 
 1. export GOVC_URL=url
-2. export GOVC_USER=user
+2. export GOVC_USERNAME=user
 3. export GOVC_PASSWORD=password
 4. export GOVC_INSECURE=true
 
