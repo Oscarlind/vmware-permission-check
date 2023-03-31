@@ -2,6 +2,10 @@
 Script to check if user got adequate permission in vmware for OpenShift/Kubernetes
 Checks included for both UPI and IPI installations.
 
+## NOTE
+This script is currently not working properly. It is looping every account that the SA can find and then compares the permissions from the sum of those to the required ones. 
+
+
 Pre-requirements
 ----------------
 This script requires the user to have [govc](https://github.com/vmware/govmomi/tree/master/govc) VMwares CLI.  
